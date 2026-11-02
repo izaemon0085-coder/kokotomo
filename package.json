@@ -1,0 +1,15 @@
+{
+  "name": "kokotomo",
+  "version": "0.1.0",
+  "private": true,
+  "description": "こことも：旅や、障害のある人の移動を助けるアプリ（おたすけカード・会場のバリアフリーメモ）",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "node --test test/"
+  }
+}

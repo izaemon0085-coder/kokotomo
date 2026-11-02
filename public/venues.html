@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>会場のバリアフリーメモ | こことも β版</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="top-bar">
+    <div class="inner">
+      <a class="brand" href="/">こことも <span class="beta">β版</span></a>
+      <nav aria-label="メイン">
+        <a href="/card.html">おたすけカード</a>
+        <a href="/venues.html">会場メモ</a>
+      </nav>
+    </div>
+  </header>
+  <main class="page">
+    <!-- 会場をさがす -->
+    <section id="search-view">
+      <h1>🗺️ 会場のバリアフリーメモ</h1>
+      <p class="lead">行った人が書き足していくメモです。出かける前の下調べに。</p>
+      <form id="search-form" class="card" role="search">
+        <label class="field">会場の名前
+          <input class="input" id="q" maxlength="40" placeholder="例：〇〇ホール" autocomplete="off">
+        </label>
+        <div class="row">
+          <button class="btn" type="submit">さがす</button>
+        </div>
+        <ul class="venue-list" id="venue-list" aria-live="polite"></ul>
+        <div id="add-venue" hidden>
+          <p class="muted">見つからないときは、会場を足せます。</p>
+          <button type="button" class="btn ghost" id="add-venue-btn"></button>
+        </div>
+        <p class="error" id="search-error" role="alert"></p>
+      </form>
+    </section>
+
+    <!-- 会場のメモ -->
+    <section id="venue-view" hidden aria-labelledby="venue-name">
+      <p><a href="#" id="back-link">← 会場をさがす</a></p>
+      <h1 id="venue-name"></h1>
+      <p class="notice">みんなで書いたメモです。古くなっていることがあります。出かける前に、会場や駅にも確かめてください。</p>
+      <div class="card" id="topics"></div>
+
+      <form id="note-form" class="card">
+        <h2>メモを書き足す</h2>
+        <label class="field">項目
+          <select class="input" id="topic"></select>
+        </label>
+        <label class="field">メモ（200文字まで）
+          <textarea class="input" id="note-text" maxlength="200" rows="3" placeholder="例：エレベーターは東口を入って右。2階の車いす席まで行ける"></textarea>
+        </label>
+        <p class="muted small">会場のことだけを書いてください。人の名前、電話番号、住所、体のくわしいことは書かないでください。</p>
+        <p class="error" id="note-error" role="alert"></p>
+        <button class="btn" type="submit">書き足す</button>
+      </form>
+    </section>
+  </main>
+  <script type="module" src="/app.js"></script>
+  <script type="module" src="/venues.js"></script>
+</body>
+</html>

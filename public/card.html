@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>おたすけカード | こことも β版</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="top-bar">
+    <div class="inner">
+      <a class="brand" href="/">こことも <span class="beta">β版</span></a>
+      <nav aria-label="メイン">
+        <a href="/card.html">おたすけカード</a>
+        <a href="/venues.html">会場メモ</a>
+      </nav>
+    </div>
+  </header>
+  <main class="page">
+    <h1>🪪 おたすけカード</h1>
+    <p class="lead">手伝ってほしいことを選んでおくと、駅や会場で、画面を見せるだけで伝えられます。</p>
+
+    <form id="card-form" class="card">
+      <fieldset style="border:0;padding:0;margin:0">
+        <legend><h2>手伝ってほしいこと</h2></legend>
+        <div class="choices" id="choices"></div>
+      </fieldset>
+      <label class="field">自分のことばで（なくてもOK・100文字まで）
+        <textarea class="input" id="free" maxlength="100" rows="2" placeholder="例：右手が使いにくいので、荷物を持つのを手伝ってください"></textarea>
+      </label>
+      <p class="muted small">ここに書いたことは、このスマホの中だけに保存されます。どこにも送りません。名前や病名は書かなくてだいじょうぶです。</p>
+      <p class="error" id="card-error" role="alert"></p>
+      <div class="row">
+        <button class="btn" type="submit">📣 カードを見せる</button>
+        <span class="muted small" id="saved" role="status"></span>
+      </div>
+    </form>
+  </main>
+
+  <!-- 見せる画面：画面いっぱいに大きな文字 -->
+  <section class="show-card" id="show-card" hidden aria-labelledby="show-title" role="dialog" aria-modal="true">
+    <p class="card-title" id="show-title">お手数ですが、お願いします</p>
+    <ul id="show-list"></ul>
+    <textarea class="writing" id="writing" hidden aria-label="筆談：ここに書いてください" placeholder="ここに書いてください"></textarea>
+    <div class="actions">
+      <button type="button" class="btn" id="speak-btn">🔊 読み上げる</button>
+      <button type="button" class="btn ghost" id="write-btn">✏️ 筆談する</button>
+      <button type="button" class="btn ghost" id="close-btn">とじる</button>
+    </div>
+  </section>
+  <script type="module" src="/app.js"></script>
+  <script type="module" src="/card.js"></script>
+</body>
+</html>

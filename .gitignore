@@ -1,0 +1,7 @@
+.DS_Store
+Thumbs.db
+Desktop.ini
+node_modules/
+
+# アプリのデータ（実行時に生成）
+data/
